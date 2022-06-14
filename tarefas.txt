@@ -1,0 +1,8 @@
+1 conflito de sala/horario
+2 duração x termino de periodo
+3 conflito de horario do prof
+
+4 intervalo de 11h entre jornada docente
+5 intervalo > 15h entre periodos
+6 limite de 10h por dia ou 13 aulas
+7 Apenas 1 professor por horário

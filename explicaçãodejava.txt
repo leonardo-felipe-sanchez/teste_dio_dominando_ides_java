@@ -1,0 +1,88 @@
+CLASSE.setMETODO(algum valor definido aqui, seja string("define quais serão os caracteres") ou numeros("qual seria o parametro"))
+	  ^
+	  set é colocar get é pegar
+		   	    |___
+				  |
+				  v
+int numGenes = Algoritimo.getSolucao().length();
+trás o tamanho do metodo Solução e define como valor para alguma 
+variável(int numgenes).
+
+/*GA*/
+
+primeiro metodo extenso é o nova geração, que se cria na linha 37 de GA
+
+	E dentro do metodo, na classe algoritmo, se cria dentro da classe Populacao, na qual pega(get) o metodo da classe tamanho da população(TamPopulacao()) para inserir na variavel nova população
+	Tambem tem um if, na qual pegam o melhor individuo da classe população e mandam para o setindividuo
+
+	na linha 23, tem um while que cria novos individuos e tem como limite o metodo .getTamPopulação()
+		dentro do while, se cria dois vetores, pais e filhos.
+			Os filhos possui um if que gera o crossover na qual mede aleatoriamente um numero com a taxa de mutação, se for menor que a taxa, haverá crossover, se não, manterá para a próxima geração.
+			Os pais pegam a seleção torneio, que será desenvolvido lá na linha 79.
+			
+			Depois é ordenado e jogado para o metodo população da classe população	
+
+Depois há o temsoloção na classe população, que é fisgado como tem solução na linha 42 da classe GA
+
+	no metodo, dentro do parametro, ele pega o solução do GA que é "olá mundo"
+		o for, cujo tamanho máximo é de de acordo com a população.
+			há um if que compara qual dos valores dentro do indiviuo estão de acordo com a solução, se for, atribui ao i e para a repetição.
+
+	se o i for null, retornará falso, se não, retonará verdadeiro.
+
+/*ALGORITMO*/
+
+Em algoritmos, depois da nova geração, há o metodo crossover, na qual, dentro dos parêntesis, pega ambas tabelas individuos que estão situados na classe individuo
+	dentro do metodo, cria dois inteiros chamado pontoCorte1 e pontocorte2
+									|			|
+	  	     tem o nexint, faz a leitura do próximo			faz a mesma coisa que o outro
+		     número digitado no console e atribui o			portanto,  o maior diferencial
+		     número à variavél, pega o tamanho do 			é somar pelo tamanho do individuo
+		     individuo 1, divide por 2 e depois 				dividido por 2.
+		     subtrai por 2 para no fim somar por 1
+
+	também é criado novamente o array filhos
+	foi criado a string genepai1 e genepai2, na qual recebeme respectivamentem individuo1.getgenes() e individuo2.getgenes()
+
+	tambem é criado as strings genefilho1 e genefilho2, na qual pegam as substrings num intervalo de letras para fazer o corte
+	criando novo individuo.
+
+
+abaixo temos o seleção torneio, na qual já sabemos que mexe com os individuoas pais.
+	cria a população intermediaria, na qual pega trÊs do metodo população na classe população
+	os três tambem definem o individuo, na qual serão criada os pais e receberão esses valores
+	os pais sairão do seleçãotorneio e entrarão na nova geração
+
+/*CLASSE INDIVIDUO*/
+
+no metodo individuo, na qual recebe o num genes, que tem como tamanho o que foi definido no get solução
+	no individuo, é criado a string caracteres que recebe o caracteres de algoritmo
+	genes recebe caracteres.charAt(r.nextInt(caracteres.length())), 
+	altera o aptidão e tudo isso contribui para gerar um individuo aleatório.
+tem um outro metodo com o mesmos nome, portanto recebe o string genes 
+	cria a variavel gene que recebe os genes do outro metodo
+	cria um if responsavel pela mutação, na qual cria um gene aleatório, como? resgata a string caracteres, cria genenovo, cria a int posaleatória, que pega valores aleatorios do gene, bota num for e se caso for igual ao i, gera geneNovo += caracteres.charAt(r.nextInt(caracteres.length())), se não, geneNovo += genes.charAt(i)  
+	fora do if, o variavel gene recebe o genenovo
+
+por ultimo tem o gera aptidão, que retorna nada
+	cria a string solução, que recebe a solução da classe algoritmo, 
+	tem um for, cujo limite é o tamanho da solução
+		possui um if, que, se a solução for igual ao  gene, gera mais aptidão 
+
+/*POPULAÇÃO*/
+
+possui o metodo população, que cria individuos aleatórios, recebe o numgenes e o tampop do GA
+	cria o tampopulação que tecebe o tampop do ga
+	cria o array chamado individuos que tem o tamanho do tampop
+		no for, insere o numgenes(de algoritmos) dentro do INDIVIDUOS  
+tem um outro metodo com o mesmo nome, portanto somente pega o tampop	
+	cria o tampopulação que pega o tampop
+	gera de novo o INDIVIDUOS
+	faz o for
+		portanto zera o que está dentro dos individuos, afinal serve para descartar individuos antigos para botar novos e melhores 
+
+por ultimo, tem o ordena população, onde vários metodos de outras classes recorrem muito pelo seu comando de ordenar.
+	cria o boolean trocou, na qual cria um while que roda enquanto o troca for falso.
+		há o for, cujo o limite é o tamanho do INDIVIDUOS, 
+			no if, há aquela classe tecnica de trocas e assim faz o while parar com o trocou true
+
